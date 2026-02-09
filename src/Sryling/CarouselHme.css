@@ -1,0 +1,59 @@
+.Container-crsl{
+    width: 100%;
+    /* background: url("/workingImg/backgroundCrsl.png"); */
+    background: transparent;
+    position: relative;
+    z-index: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.Container-crsl::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  /* background: rgba(252, 254, 141, 0.545); */
+  background: rgba(168, 190, 255, 0.681);
+  background: rgba(74, 96, 205, 0.468);
+  background: rgba(255, 238, 88, 0.468);
+
+  /* filter: blur(5px); */
+    
+}
+.Container-crsl::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -5;
+  /* background: rgba(21, 91, 203, 0.232); */
+  background: rgba(8, 9, 1, 0.59);
+  filter: blur(2px) brightness(50%);
+    
+}
+
+
+.carousel-crsl{
+    width: 80%;
+    margin:0 auto ;
+    /* margin-left: 5%; */
+}
+.carousel-window-crsl{
+    width: 100%;
+    overflow: hidden;
+
+}
+.slider-crsl{
+    display: flex;
+
+    
+    
+}
+.slide-crsl{
+    width: 100%;
+    /* aspect-ratio: 16/9; */
+    aspect-ratio: 2.35/1;
+    object-position: center;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 20px;
+}

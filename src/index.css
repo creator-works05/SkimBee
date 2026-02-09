@@ -1,0 +1,72 @@
+  *{
+    box-sizing: border-box;
+  }
+                        /* NAV BAR SECTION */
+.nav-bar-home{
+ display: flex;
+ width: 100%;
+ flex-wrap: nowrap;
+ background: rgb(255, 204, 0);
+ height:50px;
+ align-items: center;
+ 
+}
+.nav-bar-home .signout-nvbr{
+    margin-left: 2px;
+    margin-right: 5px;
+}
+.nav-bar-home .search-box-nvbr {
+  
+    margin: 0 auto;
+    
+}
+
+                          /*========================== COMPONENT SubNav */
+.sub-nav-sbnv{
+    width: 100%;
+    /* height: 70px; */
+    display: flex;
+    overflow: hidden;
+    border-top: 3px solid rgba(255, 204, 0, 0.51);
+  
+
+}
+.inner-one-sbnv{
+    display: flex;
+    flex-grow: 1;
+    gap:1px;
+    overflow-x: auto;
+    /* flex-shrink: 0; */
+    scrollbar-width: none;
+}
+.inner-one-sbnv > *{
+    flex: 1 1 0;
+    border: none;
+    background:linear-gradient(to bottom, rgba(234, 236, 126, 0.734)  80%, transparent 100%);
+    height: 40px;
+    margin-top: 0px;
+    min-width: 200px;
+    /* border-radius: 4px 4px 0 0; */
+    /* border: 1px solid rgba(133, 210, 255, 0.679) ; */
+    
+
+}
+/* .the-first-sbnv{
+    position: relative;
+    inset: 0;
+    
+} */
+.category-sbnv{
+    clip-path: polygon(0 0,95% 0, 100% 50%,95% 100%,0 100%);
+    border: 0;
+    height: 37px;
+    /* margin-top: 2px; */
+    background: rgba(204, 201, 24, 0.785);
+    min-width: 100px;
+    margin-right: 1px;
+    position: relative;
+    
+    z-index: 0;
+
+    
+}
