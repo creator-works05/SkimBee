@@ -1,3 +1,61 @@
 {
-    "users":[]
+  "users": [
+    {
+      "id": "Arunmlf2zzyrzo9",
+      "name": "Arun",
+      "email": "aer@gmail.com",
+      "password": "113",
+      "payload": {
+        "setting": [],
+        "addresses": [],
+        "prevOrder": [],
+        "orderNow": null,
+        "signedDate": 1770661340253
+      }
+    },
+    {
+      "id": "PraveenKummlf7r",
+      "name": "Praveen Kumar",
+      "email": "prvn@gmail.com",
+      "password": "123",
+      "payload": {
+        "setting": [],
+        "addresses": [],
+        "prevOrder": [],
+        "orderNow": null,
+        "signedDate": 1770661446144
+      }
+    },
+    {
+      "id": "Nivedithamlfhjh",
+      "name": "Niveditha",
+      "email": "nivi@gmail.com",
+      "password": "143",
+      "payload": {
+        "setting": [],
+        "addresses": [],
+        "prevOrder": [],
+        "orderNow": null,
+        "signedDate": 1770661550516
+      }
+    }
+  ],
+  "userLogs": [
+   
+    {
+      "id": "1770661340mlfox",
+      "userId": "Arunmlf2zzyrzo9",
+      "logDate": 1770661340253
+    },
+    {
+      "id": "1770661446mlfyi",
+      "userId": "PraveenKummlf7r",
+      "logDate": 1770661446144
+    },
+    {
+      "id": "1770661550mlf06",
+      "userId": "Nivedithamlfhjh",
+      "logDate": 1770661550516
+    }
+  ]
 }
