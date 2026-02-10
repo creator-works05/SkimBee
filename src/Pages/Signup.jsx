@@ -75,10 +75,11 @@ function submitSignup(e){
     
     let id =genUserId(formData.name,15)
     let checkDup=fetchedUser.some((user,i)=>{console.log("chedking prev");
-        return formData.name===user.name&&formData.email===user.email
+        return formData.email===user.email&&formData.password===user.password
     })
     if(checkDup){
-        console.log("match found")
+         setAlertMsg("Similar account already exists, Try login or Have fresh sign up")
+        setPopAlert(true)
         return
     }
     else{
@@ -126,7 +127,9 @@ function submitSignup(e){
 function doClose(){
     setPopAlert(false)
 }
-
+function resetForm(e){
+     setFormData({name:"",email:"",password:"",cpass:""})
+}
   
   return (
     <>
@@ -140,7 +143,7 @@ function doClose(){
         <label htmlFor="form-cpass">Confirm password :</label> <input ref={refOb=>inputRef.current[3]=refOb} onKeyDown={(e)=>{forFocus(e,3)}} value={formData.cpass} onChange={getInput} id="cpass" type="text" name="cpass"
             placeholder="Confirm password" /><br/><br/>
         <button type="submit">Sign up</button>
-        <button  type="reset">Clear</button>
+        <button  type="reset" onClick={resetForm}>Clear</button>
     </form>
     {popAlert&&<div style={{position:"fixed",top:"0",paddingLeft:"10%",paddingRight:"10%",left:"50%",transform:"translateX(-50%)",marginTop:"5px"}} className="alert alert-warning signupAlert" role="alert">
   {alertMsg} <button onClick={doClose} style={{position:"absolute",top:"0",right:"0",border:"0",borderRadius:"4px",background:"rgb(187,200,140)"}}>close</button>
