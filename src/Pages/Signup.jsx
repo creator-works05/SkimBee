@@ -3,6 +3,7 @@ import "../Sryling/SignupStyle.css"
 import { genUserId } from '../JsExports/CommonJs';
 import { getUser, postUser } from '../ApiServices/usersApi';
 import { postUserLogs } from '../ApiServices/userLogs';
+import { useNavigate } from 'react-router-dom';
 
 
 function Signup() {
@@ -11,6 +12,7 @@ function Signup() {
     const [popAlert,setPopAlert]=useState(false)
     const [alertMsg,setAlertMsg]=useState("something gone wrong")
     const [fetchedUser,setFetchedUser]=useState({})
+    const navTo=useNavigate()
     useEffect(()=>{console.log(formData)},[formData])
 
     
@@ -51,6 +53,7 @@ function submitSignup(e){
     e.preventDefault();
     let takeField;
     let {name,email,password,cpass}=formData;
+    
     if(Object.keys(formData).some(key=>{takeField=key;
     
          return !formData[key] })){
@@ -94,6 +97,7 @@ function submitSignup(e){
         email:formData.email,
         password:formData.password,
         payload:{
+            cart:[],
             setting:[],
             addresses:[],
             prevOrder:[],
@@ -101,7 +105,7 @@ function submitSignup(e){
             signedDate:currentDt
         }
     }
-    let genToken=genUserId(Date.now().toString(),15)
+    let genToken=genUserId(Date.now().toString().split("").reverse().join(""),15)
     console.log(genToken)
     const logs={id:genToken,
         userId:id,
@@ -117,7 +121,7 @@ function submitSignup(e){
     ).catch(err=>console.log(err)
     )
     postUserLogs(logs)
-    .then(res=>console.log(res.data))
+    .then(res=>navTo("/"))
     .catch(err=>console.log(err)
     )
     setFormData({name:"",email:"",password:"",cpass:""})
