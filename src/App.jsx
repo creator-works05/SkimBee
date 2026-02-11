@@ -6,6 +6,7 @@ import Login from './Pages/Login'
 import NavBar from './Components/NavBar'
 import SubNav from './Components/SubNav'
 import UserAuth from './RouteMedium/UserAuth'
+import Admin from './Pages/Admin'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Route path='/' element={<PrivateRouter Home={<Home/>} />}/>
     <Route path='/auth' element={<UserAuth/>}/>
     <Route path='/login' element={<UserAuth/>}/>
+    <Route path='/admin' element={<Admin/>}/>
    </Routes>
     </>
   )
