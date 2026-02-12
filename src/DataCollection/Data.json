@@ -176,6 +176,48 @@
       "logDate": 1770800005364
     }
   ],
+  "mainType": [
+    {
+      "id": "10c8",
+      "Mobiles": []
+    },
+    {
+      "id": "709f",
+      "Fashion": []
+    },
+    {
+      "id": "6d32",
+      "Electronics": []
+    },
+    {
+      "id": "7431",
+      "Applainces": []
+    },
+    {
+      "id": "cd83",
+      "Furniture": []
+    },
+    {
+      "id": "da69",
+      "Beauty": []
+    },
+    {
+      "id": "ed78",
+      "Sports": []
+    },
+    {
+      "id": "9201",
+      "Food & Health": []
+    },
+    {
+      "id": "1de5",
+      "Books": []
+    },
+    {
+      "id": "4569",
+      "Kids": []
+    }
+  ],
   "admin": {
     "name": "admin",
     "password": "123"
