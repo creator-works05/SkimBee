@@ -179,19 +179,103 @@
   "mainType": [
     {
       "id": "10c8",
-      "Mobiles": []
+      "Mobiles": [
+        {
+          "subType": "Samsung",
+          "subTier2": []
+        },
+        {
+          "subType": "Apple",
+          "subTier2": []
+        },
+        {
+          "subType": "Redmi",
+          "subTier2": []
+        },
+        {
+          "subType": "Vivo",
+          "subTier2": []
+        },
+        {
+          "subType": "Realme",
+          "subTier2": []
+        },
+        {
+          "subType": "Oppo",
+          "subTier2": []
+        }
+      ]
     },
     {
       "id": "709f",
-      "Fashion": []
+      "Fashion": [
+        {
+          "subType": "Shirt",
+          "subTier2": []
+        },
+        {
+          "subType": "T-shirt",
+          "subTier2": []
+        },
+        {
+          "subType": "Jeans",
+          "subTier2": []
+        },
+        {
+          "subType": "Shoes",
+          "subTier2": []
+        },
+        {
+          "subType": "Jewellery",
+          "subTier2": []
+        },
+        {
+          "subType": "Sarees",
+          "subTier2": []
+        }
+      ]
     },
     {
       "id": "6d32",
-      "Electronics": []
+      "Electronics": [
+        {
+          "subType": "Laptops",
+          "subTier2": []
+        },
+        {
+          "subType": "Tablets",
+          "subTier2": []
+        },
+        {
+          "subType": "Grooming",
+          "subTier2": []
+        },
+        {
+          "subType": "Accessories",
+          "subTier2": []
+        }
+      ]
     },
     {
       "id": "7431",
-      "Applainces": []
+      "Applainces": [
+        {
+          "subType": "Television",
+          "subTier2": []
+        },
+        {
+          "subType": "Fridges",
+          "subTier2": []
+        },
+        {
+          "subType": "Laundry",
+          "subTier2": []
+        },
+        {
+          "subType": "ACs",
+          "subTier2": []
+        }
+      ]
     },
     {
       "id": "cd83",

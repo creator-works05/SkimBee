@@ -6,4 +6,7 @@ const getMethod=(url)=>{
 const postMethod=(url,data)=>{
    return axios.post(url,data)
 }
-export {getMethod,postMethod}
+const putMethod=(url,data)=>{
+   return axios.put (url,data)
+}
+export {getMethod,postMethod,putMethod}
