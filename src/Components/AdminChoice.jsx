@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { AdminContext } from '../Pages/Admin'
 import { getMethod, postMethod, putMethod } from '../ApiServices/autoMethod'
 import { urlmainType } from '../ApiServices/setUrl'
+import ProductAdd from './ProductAdd'
 
 function AdminChoice() {
   const { choice } = useContext(AdminContext)
@@ -61,7 +62,10 @@ function AdminChoice() {
     }
   }
   switch (choice) {
-    case "addProduct": return <h1>Add Product Form </h1>
+    case "addProduct": return <>
+    <h3>Add products</h3>
+    <ProductAdd/>
+    </>
     case "addMainType": return <>
       <form style={{ marginTop: "10px", marginLeft: "10px" }} onSubmit={addMainType} onReset={clearType}>
 
