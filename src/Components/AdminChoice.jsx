@@ -3,6 +3,7 @@ import { AdminContext } from '../Pages/Admin'
 import { getMethod, postMethod, putMethod } from '../ApiServices/autoMethod'
 import { urlmainType } from '../ApiServices/setUrl'
 import ProductAdd from './ProductAdd'
+import CarousalChoice from './CarousalChoice'
 
 function AdminChoice() {
   const { choice } = useContext(AdminContext)
@@ -96,6 +97,7 @@ function AdminChoice() {
       </form>
 
     </>
+    case "carousal" : return <CarousalChoice/>
   }
 
   return (

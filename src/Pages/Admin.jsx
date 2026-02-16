@@ -98,6 +98,7 @@ function Admin() {
                 <option value="addProduct" >Add product </option>
                 <option value="addMainType" >Add Main Type </option>
                 <option value="addSubType1" >Add Sub Type 1 </option>
+                <option value="carousal" > Carousal element </option>
             </select>
             {choice&&<> 
             

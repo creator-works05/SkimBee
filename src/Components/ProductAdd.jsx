@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { getMethod } from '../ApiServices/autoMethod'
-import { urlmainType } from '../ApiServices/setUrl'
+import { getMethod, postMethod } from '../ApiServices/autoMethod'
+import { urlmainType, urlproduct } from '../ApiServices/setUrl'
 import { genNumberValue, genUserId } from '../JsExports/CommonJs'
 
 function ProductAdd() {
@@ -13,6 +13,10 @@ Built with quality materials, it combines functionality and value in a simple, p
   const [brd, setBrd] = useState([])
   const [mainCtgry, setMainCtgry] = useState([])
   const [subCtgry, setSubCtgry] = useState([])
+  const [alertMsg, setAlertMsg] = useState("something gone wrong")
+  const [popAlert, setPopAlert] = useState(false)
+
+  
   let inputRef = useRef([])
 
   useEffect(() => {
@@ -78,15 +82,36 @@ Built with quality materials, it combines functionality and value in a simple, p
       name,
       image,
       price,
-      desc,
       stock,
       offer,
       category:{T1:mainChoice,T2:subChoice},
+      desc,
       specInfo:spec,
       specDesc:specValue
 
     }
     console.log("=> -- ",payload)
+    postMethod(urlproduct,payload)
+    .then(res=>{
+      console.log(res.data);
+      let convetD=Object.entries(payload).reduce((acc,[key,value])=>{
+        if(key==="specInfo"||key==="specDesc"){
+          return acc
+        }
+        if(key==="category"){
+          return acc+`Category{ T1: ${value.T1} , T2: ${value.T2} }`
+
+        }
+        return acc+`${key} : ${value} , \n`}," ")
+      setFormData({...formData,image:"",name:""})
+      setPopAlert(true)
+      setAlertMsg(`Product Added SuccessFully : ${convetD} .`)
+    })
+    .catch(err=>{setPopAlert(true)
+      setAlertMsg(`Adding product failed => ${err.message}`)
+    })
+    
+
   }
   function changeInputOne(e, i) {
     const { value } = e.target;
@@ -112,10 +137,24 @@ Built with quality materials, it combines functionality and value in a simple, p
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
     console.log(formData)
+    if(popAlert){
+      setPopAlert(false)
+      setSpec([{spec:""}])
+      setSpecValue([{val:""}])
+      
+    }
 
   }
+  function doClose(){
+    setPopAlert(false)
+}
+  function formResetClick(e){
+    setFormData({ image: "", name: "", price: "", stock: "", offer: "", stockMin: 8, stockMax: 100, priceMin: 150, priceMax: 5000, desc:"", mainChoice: "", subChoice: "" })
+
+    
+  }
   return (<>
-    <form style={{ margin: "10px 20px" }} onSubmit={formSubmit}>
+    <form style={{ margin: "10px 20px" }} onSubmit={formSubmit} onReset={formResetClick} >
       <br />
       <label>Product Image url:</label><br />
       <input onChange={changeInputThree} value={formData.image} type="text" name="image" pattern="^\\S+$" title="No spaces allowed" ref={refOb => inputRef.current[0] = refOb} onKeyDown={(e) => { forFocus(e, 0) }} />
@@ -156,7 +195,7 @@ Built with quality materials, it combines functionality and value in a simple, p
       <input onChange={changeInputThree} value={formData.name} type="text" name="name" required pattern="^[A-Za-z0-9 ]{3,100}$" title="Only letters, numbers and spaces (3-100 characters)" ref={refOb => inputRef.current[1] = refOb} onKeyDown={(e) => { forFocus(e, 1) }} />
       <br />
       <label>Price:</label><br />
-      <input onChange={changeInputThree} value={formData.price} type="number" name="price" min="0" step="1.0" ref={refOb => inputRef.current[2] = refOb} onKeyDown={(e) => { forFocus(e, 2) }} /> <input onChange={changeInputThree} value={formData.priceMin} type='number' name="priceMin" /><label>-</label><input onChange={changeInputThree} value={formData.priceMax} type='number' name="priceMax" max={100000} />
+      <input onChange={changeInputThree} value={formData.price} type="number" name="price" min="0" step="1.0" ref={refOb => inputRef.current[2] = refOb} onKeyDown={(e) => { forFocus(e, 2) }} /> <input onChange={changeInputThree} value={formData.priceMin} type='number' name="priceMin" min={500} /><label>-</label><input onChange={changeInputThree} value={formData.priceMax} type='number' name="priceMax"  />
       <br /><br /><br />
       <label>Offer Percentage:</label><br />
       <input onChange={changeInputThree} value={formData.offer} type="number" name="offer" min="0" max="100" ref={refOb => inputRef.current[3] = refOb} onKeyDown={(e) => { forFocus(e, 3) }} />
@@ -201,9 +240,12 @@ Built with quality materials, it combines functionality and value in a simple, p
       }} >-</button>
       <br /><br /><br />
 
-      <button type="submit">Submit</button>
-      <button type="reset">Clear</button>
+      <button onMouseLeave={()=>{popAlert&&setPopAlert(false)}} type="submit">Submit</button>
+      <button type="reset" >Clear</button>
     </form>
+     {popAlert&&<div style={{color:"indigo",position:"fixed",top:"0",paddingLeft:"10%",paddingRight:"10%",left:"50%",transform:"translateX(-50%)",marginTop:"5px"}} className="alert alert-warning signupAlert" role="alert">
+  {alertMsg} <button onClick={doClose} style={{position:"absolute",top:"0",right:"0",border:"0",borderRadius:"4px",background:"rgb(187,200,140)"}}>close</button>
+</div>}
   </>
   )
 }
