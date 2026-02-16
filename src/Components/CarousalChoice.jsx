@@ -6,6 +6,7 @@ function CarousalChoice() {
     const [formData, setFormData] = useState({ image: "" })
     const [alertMsg, setAlertMsg] = useState("something gone wrong")
     const [popAlert, setPopAlert] = useState(false)
+    const [isDisable,setIsDisable]=useState(false)
 
     const [forImage,setForImage]=useState([])
     useEffect(()=>{
@@ -20,10 +21,10 @@ function CarousalChoice() {
       
         let arrow;
         let changeImage;
-        let theNew;
+        let theNew=[];
         if(forImage.length!=0){
             theNew=[...forImage[0].img]
-            if(forImage[0].img.length>10){
+            if( forImage[0].img.length>10){
             theNew.shift()
             theNew.pop()
 
@@ -55,7 +56,7 @@ function CarousalChoice() {
             // forImage[0].img.splice(0,0,last)
             // forImage[0].img.push(first)
              let temp=[...theNew]
-             temp.splice(1,1)
+             temp.splice(0,1)
              temp.push({link:formData.image})
              let last=temp[temp.length-1]
              let first=temp[0]
@@ -66,15 +67,30 @@ function CarousalChoice() {
             arrow=false;
             
         }
+        setIsDisable(true)
         if(arrow){
             postMethod(urlcarousal,changeImage)
-            .then(res=>console.log("posted",res.data))
+            .then(res=>setForImage([changeImage]))
             .catch(err=>console.log(err))
+             .finally(()=>{
+            setIsDisable(false)
+            })
         }
         else{
             putMethod(urlcarousal+"/here",changeImage)
-            .then(res=>console.log("Updated",res.data))
-            .catch(err=>console.log(err))
+            .then(res=>{console.log("Updated",res.data)
+                setForImage([changeImage]);
+                setPopAlert(true)
+                setAlertMsg("Image added successfully")
+                setFormData({...formData,image:""})
+            })
+            .catch(err=>{console.log(err)
+                setPopAlert(true)
+                setAlertMsg("Something went wrong. Error is thrown.")
+            })
+            .finally(()=>{
+            setIsDisable(false)
+            })
         }
 
     }
@@ -82,6 +98,8 @@ function CarousalChoice() {
     function changeInput(e){
         const {name,value}=e.target;
         setFormData({...formData,[name]:value})
+        setPopAlert(false)
+        setIsDisable(false)
       
     }
     function doClose(){
@@ -89,11 +107,11 @@ function CarousalChoice() {
 }
     return (
         <>
-            <form onSubmit={addImage} >
+            <form onSubmit={addImage} onReset={()=>{ setFormData({...formData,image:""})}} >
                 <label>Carousal Image url:</label><br />
                 <input onChange={changeInput} value={formData.image} type="text" name="image" pattern="^\\S+$" title="No spaces allowed"   />
                 <br /><br />
-                <button type='submit'> Post image </button>
+                <button type='submit' onMouseOut={()=>{setPopAlert(false)}} disabled={isDisable}> Post image </button>
                 <button type="reset"> clear </button>
 
             </form>
