@@ -1,7 +1,15 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import "../Sryling/CarouselHme.css"
+import { getMethod } from '../ApiServices/autoMethod'
+import { urlcarousal } from '../ApiServices/setUrl'
 
 function Carousel() {
+  const [crslData,setCrslData]=useState([])
+  useEffect(()=>{
+    getMethod(urlcarousal)
+    .then(res=>setCrslData(res.data))
+    .catch(e=>console.log(e))
+  },[])
   return (
     <>
     <div className="Container-crsl">
@@ -9,24 +17,12 @@ function Carousel() {
     <div className="carousel-crsl">
         <div className="carousel-window-crsl">
             <div className="slider-crsl">
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc2.png" alt="img" className='slide-crsl' />
-                 <img src="/public/workingImg/grphc1.png" alt="img" className='slide-crsl' />
+                {
+                  crslData[0]?.img?.map((el,i)=>{
+                    return  <img src={el.link} key={i} alt="img" className='slide-crsl' />
+                  })
+                 }
+               
             </div>
         </div>
     </div>

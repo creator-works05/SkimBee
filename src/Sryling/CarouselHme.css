@@ -53,7 +53,7 @@
     /* aspect-ratio: 16/9; */
     aspect-ratio: 2.35/1;
     object-position: center;
-    object-fit: cover;
+    object-fit: fill;
     flex-shrink: 0;
     border-radius: 20px;
 }
