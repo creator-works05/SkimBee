@@ -26,8 +26,8 @@
   inset: 0;
   z-index: -5;
   /* background: rgba(21, 91, 203, 0.232); */
-  background: rgba(8, 9, 1, 0.59);
-  filter: blur(2px) brightness(50%);
+  background: rgba(206, 236, 7, 0.59);
+  filter: blur(2px) brightness(60%);
     
 }
 
@@ -85,8 +85,11 @@
     font-weight: 900;
     box-sizing: border-box;
     padding-top: 0;
-    padding-bottom: 8.5VW;
-    
+    /* padding-bottom: 8.5VW; */
+    height: 100%;
+    /* align-items: center; */
+    vertical-align: middle;
+    background: transparent;
 }
 .LCarrow{
     position: absolute;
@@ -95,6 +98,7 @@
     transform: translateY(-50%);
     border:0px;
     padding-right: 5%;
+    border-radius: 20px 0px 0px 20px;
 }
 .RCarrow{
     position: absolute;
@@ -103,6 +107,7 @@
     transform: translateY(-50%);
     border:0px;
     padding-left: 5%;
+     border-radius: 0px 20px 20px 0px;
 
 
 }
@@ -110,5 +115,6 @@
     font-size: 5vw;
     margin: 0;
     padding: 0;
+    /* cursor: pointer; */
 
 }

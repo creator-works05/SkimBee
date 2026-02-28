@@ -11,7 +11,9 @@ function Carousel() {
   const [scrollSwitch, setScrollSwitch] = useState(true) // yet to be used
   const [scrollDir, setScrollDir] = useState(false) // yet to be used
   const indexRef = useRef(1);
-  const sliderRef = useRef(null);
+  const timerRef = useRef(null);
+  const breakRef =useRef(0)
+
 
 
   // const []
@@ -73,6 +75,7 @@ function Carousel() {
     if (!slider) return;
 
     const handleScroll = () => {
+      // if (!scrollSwitch) return;
       const width = slider.clientWidth;
 
       // If reached cloneFirst
@@ -86,6 +89,8 @@ function Carousel() {
           slider.style.scrollBehavior = "smooth";
         });
       }
+
+
     };
 
     slider.addEventListener("scroll", handleScroll);
@@ -96,17 +101,78 @@ function Carousel() {
 
 
   function leftMove(e) {
-    
-    indexRef.current = indexRef.current - 1; 
+
     console.log(indexRef.current)
-    if(indexRef.current===0){
-      indexRef.current=crslInside.length-1;
-      
+    clearTimeout(timerRef.current)
+      if(breakRef.current===1){
+      setScrollSwitch(false)
     }
+
+    // if(indexRef.current===0){
+    //   indexRef.current=crslInside.length-3;
+    //   frame.current.style.scrollBehavior="none";
+    //   frame.current.scrollLeft=frame.current.width*crslInside.length-3;
+
+    //   return;
+    // }
+    // requestAnimationFrame(() => {
+    //   frame.current.style.scrollBehavior = "smooth";
+
+    // });
+    if (indexRef.current <= 1) {
+      console.log("hello")
+      indexRef.current = crslInside.length - 2;
+      frame.current.style.scrollBehavior = "auto";
+      // frame.current.scrollLeft=frame.current.clientWidth*crslInside.length-1
+      frame.current.scrollTo({
+        left: indexRef.current * frame.current.clientWidth,
+        behavior: "auto" //instant jump
+      });
+      console.log(indexRef.current, "after", frame.current.clientWidth * crslInside.length - 1)
+      requestAnimationFrame(() => {
+        frame.current.style.scrollBehavior = "smooth";
+      });
+
+      timerRef.current = setTimeout(() => {
+      setScrollSwitch(true)
+      console.log("hi")
+      breakRef.current=1;
+    }, 2000)
+
+
+      return
+    }
+    indexRef.current = indexRef.current - 1;
     frame.current.scrollTo({
       left: indexRef.current * frame.current.clientWidth,
       behavior: "smooth"
     });
+
+    timerRef.current = setTimeout(() => {
+      setScrollSwitch(true)
+      console.log("hi")
+      breakRef.current=1;
+    }, 2000)
+
+  }
+  function rightMove() {
+    console.log(indexRef.current)
+    clearTimeout(timerRef.current)
+    if(breakRef.current===1){
+      setScrollSwitch(false)
+    }
+
+    indexRef.current = indexRef.current + 1;
+    frame.current.scrollTo({
+      left: indexRef.current * frame.current.clientWidth,
+      behavior: "smooth"
+    });
+    // scrollSwitch(false)
+    timerRef.current = setTimeout(() => {
+      setScrollSwitch(true)
+      console.log("hi")
+      breakRef.current=1;
+    }, 2000)
   }
 
   return (
@@ -136,8 +202,22 @@ function Carousel() {
                 }
 
               }></div>
-              <button className='LCarrow' onMouseOver={() => { setScrollSwitch(false) }} onClick={leftMove}><p>⟨</p> </button>
-              <button className='RCarrow' onMouseOver={() => { setScrollSwitch(false) }} ><p>⟩</p> </button>
+              <button className='LCarrow' onMouseOver={(e) => { setScrollSwitch(false) ;
+                 e.target.style.background="rgba(64, 224, 208, 0.39)";
+                 setTimeout(()=>{
+                 e.target.style.background="transparent";
+
+                 },1000)
+               }} onClick={leftMove}><p>⟨</p> </button>
+              <button className='RCarrow' onMouseOver={(e) => { setScrollSwitch(false);
+                 e.target.style.background="rgba(64, 224, 208, 0.39)";
+                 setTimeout(()=>{
+                 e.target.style.background="transparent";
+
+
+                 },1000)
+                 console.log(e.target.closest)
+               }} onClick={rightMove} ><p>⟩</p> </button>
             </div>
           </div>
         </div>
