@@ -12,8 +12,9 @@ function Carousel() {
   const [scrollDir, setScrollDir] = useState(false) // yet to be used
   const indexRef = useRef(1);
   const timerRef = useRef(null);
-  const breakRef =useRef(0)
-
+  const breakRef = useRef(0)
+  const paraRef = useRef([])
+  const clearTmout = useRef(null)
 
 
   // const []
@@ -98,27 +99,23 @@ function Carousel() {
     return () => slider.removeEventListener("scroll", handleScroll);
 
   }, [crslInside.length]);
-
+ 
 
   function leftMove(e) {
-
+	clearTimeout(clearTmout.current)
     console.log(indexRef.current)
+	
     clearTimeout(timerRef.current)
-      if(breakRef.current===1){
+    paraRef.current[0].style.color = "rgb(54, 5, 5)";
+    paraRef.current[0].style.textShadow = "3px 0px 5px rgb(243, 224, 172)";
+    if (breakRef.current === 1) {
       setScrollSwitch(false)
     }
+	clearTmout.current=setTimeout(()=>{
+	  paraRef.current[0].style.color="transparent";
+      paraRef.current[0].style.textShadow="-3px 0px 5px transparent";
+	},2000)
 
-    // if(indexRef.current===0){
-    //   indexRef.current=crslInside.length-3;
-    //   frame.current.style.scrollBehavior="none";
-    //   frame.current.scrollLeft=frame.current.width*crslInside.length-3;
-
-    //   return;
-    // }
-    // requestAnimationFrame(() => {
-    //   frame.current.style.scrollBehavior = "smooth";
-
-    // });
     if (indexRef.current <= 1) {
       console.log("hello")
       indexRef.current = crslInside.length - 2;
@@ -134,12 +131,12 @@ function Carousel() {
       });
 
       timerRef.current = setTimeout(() => {
-      setScrollSwitch(true)
-      console.log("hi")
-      breakRef.current=1;
-    }, 2000)
+        setScrollSwitch(true)
+        console.log("hi")
+        breakRef.current = 1;
+      }, 2000)
 
-
+     
       return
     }
     indexRef.current = indexRef.current - 1;
@@ -151,14 +148,19 @@ function Carousel() {
     timerRef.current = setTimeout(() => {
       setScrollSwitch(true)
       console.log("hi")
-      breakRef.current=1;
+      breakRef.current = 1;
+
+
     }, 2000)
 
   }
   function rightMove() {
+    console.log(paraRef.current[0], paraRef.current[1])
+    paraRef.current[1].style.color = "rgb(54, 5, 5)";
+    paraRef.current[1].style.textShadow = "-3px 0px 5px rgb(243, 224, 172)";
     console.log(indexRef.current)
     clearTimeout(timerRef.current)
-    if(breakRef.current===1){
+    if (breakRef.current === 1) {
       setScrollSwitch(false)
     }
 
@@ -171,7 +173,9 @@ function Carousel() {
     timerRef.current = setTimeout(() => {
       setScrollSwitch(true)
       console.log("hi")
-      breakRef.current=1;
+      breakRef.current = 1;
+      paraRef.current[1].style.color = "transparent";
+      paraRef.current[1].style.textShadow = "-3px 0px 5px transparent";
     }, 2000)
   }
 
@@ -202,22 +206,38 @@ function Carousel() {
                 }
 
               }></div>
-              <button className='LCarrow' onMouseOver={(e) => { setScrollSwitch(false) ;
-                 e.target.style.background="rgba(64, 224, 208, 0.39)";
-                 setTimeout(()=>{
-                 e.target.style.background="transparent";
+              <button className='LCarrow' onMouseOver={(e) => {
+                setScrollSwitch(false);
+                paraRef.current[0].style.color = "rgb(54, 5, 5)";
+                paraRef.current[0].style.textShadow = "3px 0px 5px rgb(243, 224, 172)";
+                e.target.style.background = "rgba(64, 224, 208, 0.39)";
+                console.log(paraRef.current[0], paraRef.current[1])
+                console.log("called")
+                setTimeout(() => {
+                  console.log("called")
+                  e.target.style.background = "transparent";
+                  paraRef.current[0].style.color = "transparent";
+                  paraRef.current[0].style.textShadow = "-3px 0px 5px transparent";
 
-                 },1000)
-               }} onClick={leftMove}><p>⟨</p> </button>
-              <button className='RCarrow' onMouseOver={(e) => { setScrollSwitch(false);
-                 e.target.style.background="rgba(64, 224, 208, 0.39)";
-                 setTimeout(()=>{
-                 e.target.style.background="transparent";
 
 
-                 },1000)
-                 console.log(e.target.closest)
-               }} onClick={rightMove} ><p>⟩</p> </button>
+                }, 1000)
+              }} onClick={leftMove}><p ref={(el) => { paraRef.current[0] = el }} >⟨</p> </button>
+              <button className='RCarrow' onMouseOver={(e) => {
+                setScrollSwitch(false);
+                paraRef.current[1].style.color = "rgb(54, 5, 5)";
+                paraRef.current[1].style.textShadow = "-3px 0px 5px rgb(243, 224, 172)";
+                e.target.style.background = "rgba(64, 224, 208, 0.39)";
+                setTimeout(() => {
+                  e.target.style.background = "transparent";
+                  paraRef.current[1].style.color = "transparent";
+                  paraRef.current[1].style.textShadow = "-3px 0px 5px transparent";
+
+
+
+
+                }, 1000)
+              }} onClick={rightMove} ><p ref={(el) => { paraRef.current[1] = el }}>⟩</p> </button>
             </div>
           </div>
         </div>
