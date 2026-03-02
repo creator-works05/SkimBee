@@ -313,17 +313,40 @@
   },
   "product": [
     {
-      "id": "SamsungA551bfch",
-      "name": "Samsung A55",
-      "image": "/noImage.png",
-      "price": 4879,
+      "id": "iphone17pr140d8",
+      "name": "iphone 17 pro max",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOQ6Xyv6Qt6hWGtlJWSMMCD_8ujRpE6pz5Sg&s",
+      "price": 125081,
+      "stock": 11,
+      "offer": "10",
+      "category": {
+        "T1": "Mobiles",
+        "T2": "Apple"
+      },
       "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
-      "stock": 46,
-      "offer": 0,
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "S26ultra1yadgaz",
+      "name": "S26 ultra",
+      "image": "https://i.redd.it/gixd83bpiltf1.jpeg",
+      "price": 128402,
+      "stock": 22,
+      "offer": "10",
       "category": {
         "T1": "Mobiles",
         "T2": "Samsung"
       },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
       "specInfo": [
         {
           "spec": ""
@@ -336,40 +359,17 @@
       ]
     },
     {
-      "id": "RealmeNarz3b1yy",
-      "name": "Realme Narzo 65",
-      "image": "/noImage.png",
-      "price": 2635,
-      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
-      "stock": 75,
-      "offer": 0,
-      "category": {
-        "T1": "Mobiles",
-        "T2": "Realme"
-      },
-      "specInfo": [
-        {
-          "spec": ""
-        }
-      ],
-      "specDesc": [
-        {
-          "val": ""
-        }
-      ]
-    },
-    {
-      "id": "Vivoy203c8yjdjh",
-      "name": "Vivo y20",
-      "image": "/noImage.png",
-      "price": 1566,
-      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
-      "stock": 57,
+      "id": "vivox300prlr07l",
+      "name": "vivo x300 pro",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTWnfJ2nQiJ05jb0HjszIvIRv3I5zufMRX6A&s",
+      "price": 119311,
+      "stock": 66,
       "offer": 0,
       "category": {
         "T1": "Mobiles",
         "T2": "Vivo"
       },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
       "specInfo": [
         {
           "spec": ""
@@ -382,17 +382,17 @@
       ]
     },
     {
-      "id": "Gt7dqhqt6igvmju",
-      "name": "Gt 7",
-      "image": "/noImage.png",
-      "price": 35293,
-      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
-      "stock": 84,
+      "id": "narzo50plu2ccbk",
+      "name": "narzo 50 plus 5g",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVDgFPZ2z7mapa9LJL6UEI7Llv-eTaABZ3-Q&s",
+      "price": 45000,
+      "stock": 101,
       "offer": 0,
       "category": {
         "T1": "Mobiles",
         "T2": "Realme"
       },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
       "specInfo": [
         {
           "spec": ""
@@ -405,15 +405,153 @@
       ]
     },
     {
-      "id": "Vivox200fe5zhdl",
-      "name": "Vivo x200 fe",
-      "image": "/noImage.png",
-      "price": 29995,
-      "stock": 69,
+      "id": "Opporeno1527ed1",
+      "name": "Oppo reno 15 fs",
+      "image": "https://images.jansatta.com/2026/01/Oppo-Reno-15-FS.jpg?w=440",
+      "price": 56844,
+      "stock": 42,
       "offer": 0,
       "category": {
         "T1": "Mobiles",
-        "T2": "Realme"
+        "T2": "Oppo"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "GalaxyA5657woo8",
+      "name": "Galaxy A56 5g",
+      "image": "https://www.sammyfans.com/wp-content/uploads/2024/10/galaxy-a36-render-img2.jpg",
+      "price": 40553,
+      "stock": 27,
+      "offer": 0,
+      "category": {
+        "T1": "Mobiles",
+        "T2": "Samsung"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "Galaxys25f3jaoy",
+      "name": "Galaxy s25 fe",
+      "image": "https://rukmini1.flixcart.com/image/1500/1500/xif0q/mobile/9/y/w/-original-imahfrffchskbzes.jpeg?q=70",
+      "price": 55346,
+      "stock": 100,
+      "offer": 0,
+      "category": {
+        "T1": "Mobiles",
+        "T2": "Samsung"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "VivoV50x02h1yl9",
+      "name": "Vivo V50",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT75_G9-dw2cxRLmv4xvEJszS_xOfp068kcdw&s",
+      "price": 34750,
+      "stock": 90,
+      "offer": "15",
+      "category": {
+        "T1": "Mobiles",
+        "T2": "Vivo"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "iphone152toh3li",
+      "name": "iphone 15",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThiXDo_punxxz7T3vAXMSnz-NDp4wbS52vTA&s",
+      "price": 37479,
+      "stock": 53,
+      "offer": 0,
+      "category": {
+        "T1": "Mobiles",
+        "T2": "Apple"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "Pumamengal2vobd",
+      "name": "Puma men galaxy pro",
+      "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/311767/02/sv01/fnd/IND/fmt/png/Galaxis-Pro-Men's-Running-Shoes",
+      "price": 2808,
+      "stock": 23,
+      "offer": 0,
+      "category": {
+        "T1": "Fashion",
+        "T2": "Shoes"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "AdidasRunf30lxc",
+      "name": "Adidas Runfalcon 5",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5mB3FszPLw3STel-a2MNZ15n4U7FXB59Z8A&s",
+      "price": 821,
+      "stock": 66,
+      "offer": "20",
+      "category": {
+        "T1": "Fashion",
+        "T2": "Shoes"
       },
       "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
       "specInfo": [

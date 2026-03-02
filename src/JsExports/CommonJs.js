@@ -6,7 +6,17 @@ const genUserId=(name,length)=>{
     return str1+str2+Math.random().toString(36).slice(2,(length-clen)+2)
 }
 const genNumberValue=(min,max)=>{
-   return Math.ceil(Math.random()*max+min+1)
+    let genValue=Math.random()*max+min+1;
+    let support= Math.random()*10;
+    if(support===0){
+        support+=1;
+        support+=Math.random()*10;
+    }
+    
+ 
+
+    return genValue>=max? Math.ceil((min+max)/support+1):Math.ceil(genValue)
+    
 }
 
-export {genUserId,genNumberValue}
+export {genUserId,genNumberValue}    

@@ -7,7 +7,7 @@ function ProductAdd() {
   const [rowUpdate, setRowUpdate] = useState([1])
   let defDesc = `This product is designed to offer reliable performance and everyday convenience for a wide range of needs.
 Built with quality materials, it combines functionality and value in a simple, practical design`
-  const [formData, setFormData] = useState({ image: "", name: "", price: "", stock: "", offer: "", stockMin: 8, stockMax: 100, priceMin: 150, priceMax: 5000, desc:"", mainChoice: "", subChoice: "" })
+  const [formData, setFormData] = useState({ image: "", name: "", price: "", stock: "", offer: "", stockMin: 8, stockMax: 100, priceMin: 500, priceMax: 5000, desc:"", mainChoice: "", subChoice: "" })
   const [spec, setSpec] = useState([{ spec: "" }])
   const [specValue, setSpecValue] = useState([{ val: "" }])
   const [brd, setBrd] = useState([])
@@ -70,11 +70,26 @@ Built with quality materials, it combines functionality and value in a simple, p
     e.preventDefault()
     let { image, name, price, stock, offer, stockMin, stockMax, priceMin, priceMax, desc, mainChoice, subChoice }=formData
     if(!image||!price||!stock||!desc||!offer){
-      image="/noImage.png"
-      offer=0
-      price=genNumberValue(Number(priceMin),Number(priceMax))
-      stock=genNumberValue(Number(stockMin),Number(stockMax))
-      desc=defDesc
+      if(!image){
+        image="/noImage.png"
+        
+      }
+      if(!offer){
+        offer=0
+
+      }
+      if(!price){
+        price=genNumberValue(Number(priceMin),Number(priceMax))
+
+      }
+      if(!stock){
+        stock=genNumberValue(Number(stockMin),Number(stockMax))
+
+      }
+      if(!desc){
+
+        desc=defDesc
+      }
     }
     const id=genUserId(name,15)
     const payload={
@@ -149,7 +164,7 @@ Built with quality materials, it combines functionality and value in a simple, p
     setPopAlert(false)
 }
   function formResetClick(e){
-    setFormData({ image: "", name: "", price: "", stock: "", offer: "", stockMin: 8, stockMax: 100, priceMin: 150, priceMax: 5000, desc:"", mainChoice: "", subChoice: "" })
+    setFormData({ image: "", name: "", price: "", stock: "", offer: "", stockMin: 8, stockMax: 100, priceMin: 500, priceMax: 5000, desc:"", mainChoice: "", subChoice: "" })
 
     
   }
@@ -157,7 +172,7 @@ Built with quality materials, it combines functionality and value in a simple, p
     <form style={{ margin: "10px 20px" }} onSubmit={formSubmit} onReset={formResetClick} >
       <br />
       <label>Product Image url:</label><br />
-      <input onChange={changeInputThree} value={formData.image} type="text" name="image" pattern="^\\S+$" title="No spaces allowed" ref={refOb => inputRef.current[0] = refOb} onKeyDown={(e) => { forFocus(e, 0) }} />
+      <input onChange={changeInputThree} value={formData.image} type="text" name="image" pattern="^\S+$" title="No spaces allowed" ref={refOb => inputRef.current[0] = refOb} onKeyDown={(e) => { forFocus(e, 0) }} />
       <br /><br />
       {/* Selection----------------------------------------------------- */}
 
@@ -195,7 +210,7 @@ Built with quality materials, it combines functionality and value in a simple, p
       <input onChange={changeInputThree} value={formData.name} type="text" name="name" required pattern="^[A-Za-z0-9 ]{3,100}$" title="Only letters, numbers and spaces (3-100 characters)" ref={refOb => inputRef.current[1] = refOb} onKeyDown={(e) => { forFocus(e, 1) }} />
       <br />
       <label>Price:</label><br />
-      <input onChange={changeInputThree} value={formData.price} type="number" name="price" min="0" step="1.0" ref={refOb => inputRef.current[2] = refOb} onKeyDown={(e) => { forFocus(e, 2) }} /> <input onChange={changeInputThree} value={formData.priceMin} type='number' name="priceMin" min={500} /><label>-</label><input onChange={changeInputThree} value={formData.priceMax} type='number' name="priceMax"  />
+      <input onChange={changeInputThree} value={formData.price} type="number" name="price" min="0" step="1.0" ref={refOb => inputRef.current[2] = refOb} onKeyDown={(e) => { forFocus(e, 2) }} /> <input onChange={changeInputThree} value={formData.priceMin} type='number' name="priceMin" min={150} /><label>-</label><input onChange={changeInputThree} value={formData.priceMax} type='number' name="priceMax"  />
       <br /><br /><br />
       <label>Offer Percentage:</label><br />
       <input onChange={changeInputThree} value={formData.offer} type="number" name="offer" min="0" max="100" ref={refOb => inputRef.current[3] = refOb} onKeyDown={(e) => { forFocus(e, 3) }} />
