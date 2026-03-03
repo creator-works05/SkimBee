@@ -8,14 +8,17 @@ const genUserId=(name,length)=>{
 const genNumberValue=(min,max)=>{
     let genValue=Math.random()*max+min+1;
     let support= Math.random()*10;
+    support=Math.round(support);
     if(support===0){
         support+=1;
         support+=Math.random()*10;
+        support=Math.round(support);
     }
     
- 
+  console.log("support :",support,"min and max",min,max,"")
+  console.log("if greater than max:",Math.ceil((min+max)/support+1),Math.ceil((min+max)/(support+1)),"else:",Math.ceil(genValue) )
 
-    return genValue>=max? Math.ceil((min+max)/support+1):Math.ceil(genValue)
+    return genValue>=max? Math.ceil(min+Math.random()*(max-min)):Math.ceil(genValue)
     
 }
 
