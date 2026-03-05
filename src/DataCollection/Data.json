@@ -546,7 +546,7 @@
       "id": "AdidasRunf30lxc",
       "name": "Adidas Runfalcon 5",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5mB3FszPLw3STel-a2MNZ15n4U7FXB59Z8A&s",
-      "price": 821,
+      "price": 2821,
       "stock": 66,
       "offer": "20",
       "category": {
@@ -615,12 +615,495 @@
       "id": "DEELMOcasu1f0q2",
       "name": "DEELMO casual shirt",
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSBKnvASv2vRsFnAmYvhvLcj2bGhaJUGwjmIL6Pjd6BlcieqRqMd343QYSaTJskrUltUZ9pK0v6xbOXcgYSb2FjpBA4VNeglEExXQkv0yxCqRhDgwOEo5PJkqaDet1xTLZq&usqp=CAc",
-      "price": 3851,
+      "price": 851,
       "stock": 56,
       "offer": "20",
       "category": {
         "T1": "Fashion",
         "T2": "Shirt"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "Levisfitts1xaen",
+      "name": "Levis fit tshirt",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmsU7FatfgBPfPFcwaXzmlwIRkVk5yDNHAduq32L7VyNy2OpeU5O6Ha9OoguMKhLg6OtFacDD1sVqwBZFmrHjUkXrPhI55-S8IidskrZw",
+      "price": 831,
+      "stock": 23,
+      "offer": 0,
+      "category": {
+        "T1": "Fashion",
+        "T2": "T-shirt"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "Roadsterme18m2j",
+      "name": "Roadster men t shirt",
+      "image": "https://assets.myntassets.com/h_1440,q_75,w_1080/v1/assets/images/10943262/2020/9/1/0c496f57-e53d-42e8-8cc6-f2ecdcc0d1a51598949417533-Roadster-Men-Black-Printed-Round-Neck-T-shirt-53315989494159-1.jpg",
+      "price": 590,
+      "stock": 35,
+      "offer": 0,
+      "category": {
+        "T1": "Fashion",
+        "T2": "T-shirt"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "RoadsterGr3gc5q",
+      "name": "Roadster Graphic printed T Shirt",
+      "image": "https://pronk.in/cdn/shop/files/476_f797e71a-bf15-4e7c-b073-2eecbcc90353.jpg?v=1741428544",
+      "price": 1006,
+      "stock": 76,
+      "offer": 0,
+      "category": {
+        "T1": "Fashion",
+        "T2": "T-shirt"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "HPvictus1539oan",
+      "name": "HP victus 15",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQI4G5m1P8zy3P55lQWVn1NGlxEG903w9VgWOPax5NKzRu8j3f0-08ft9R2sKtgG2UoawUiq4vLMsDWjw9Y-pdqIKHykuzZIFE21HWAQyOD0uo82bNNoLwPNbo_ZR7aS1EfOcq8cw0kC-s&usqp=CAc",
+      "price": 78609,
+      "stock": 17,
+      "offer": 0,
+      "category": {
+        "T1": "Electronics",
+        "T2": "Laptops"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "LenovoLOQ1ikv3c",
+      "name": "Lenovo LOQ 15 ",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTI7gmUlDCIcNxJTUvOTbicoZHaq-AH-bE9x6G9qCOV1HgvDs45mqm6hijhkpdH-VTRzANhRYoePDR0Dc4RhPLgt-jTKPDIGXaytQrYnpG2kj1SNfoREYWVnvkguLXF5D-jbio39Cn3vQ&usqp=CAc",
+      "price": 75604,
+      "stock": 96,
+      "offer": 0,
+      "category": {
+        "T1": "Electronics",
+        "T2": "Laptops"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "MacbookAir17asy",
+      "name": "Macbook Air",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/06/wwdc-2023-laptop-15-inch-1.jpg",
+      "price": 56561,
+      "stock": 68,
+      "offer": 0,
+      "category": {
+        "T1": "Electronics",
+        "T2": "Laptops"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "AzusTuffa1klss9",
+      "name": "Azus Tuff a16",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFxwysTTW8ZgJS0Dzz0YKryWuggbLQRb29UA&s",
+      "price": 93905,
+      "stock": 99,
+      "offer": "10",
+      "category": {
+        "T1": "Electronics",
+        "T2": "Laptops"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "LenovoIdea54tp8",
+      "name": "Lenovo Idea Tab Proe",
+      "image": "https://p1-ofp.static.pub//fes/cms/2025/03/11/ctjygxkmcxmd7dwms12vjz2k2mpa1x492595.png",
+      "price": 48373,
+      "stock": 14,
+      "offer": 0,
+      "category": {
+        "T1": "Electronics",
+        "T2": "Tablets"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "PhilipsTri1s8c9",
+      "name": "Philips Trimmer",
+      "image": "https://i.ytimg.com/vi/hEQN_86fXbM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDcqtC5h8JNZXC5mNU5aJR7Lk0LSw",
+      "price": 561,
+      "stock": 46,
+      "offer": 0,
+      "category": {
+        "T1": "Electronics",
+        "T2": "Grooming"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "VGRHairDry3jdvo",
+      "name": "VGR Hair Dryer",
+      "image": "https://vgrofficial.in/cdn/shop/files/9_88d93d1f-53ce-46cc-b3c1-08a7de786b52.jpg?v=1764850961&width=1500",
+      "price": 1637,
+      "stock": 70,
+      "offer": 0,
+      "category": {
+        "T1": "Electronics",
+        "T2": "Grooming"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "MiTV5A3650kc7hk",
+      "name": "Mi TV 5A",
+      "image": "https://rukminim2.flixcart.com/image/480/640/l2ghgnk0/television/x/d/9/l32m7-5ain-mi-original-imagdsdwdrbwcshh.jpeg?q=90",
+      "price": 15546,
+      "stock": 38,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Television"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "ImpexEvoQH24voy",
+      "name": "Impex EvoQ HD smart tv",
+      "image": "https://m.media-amazon.com/images/I/819OuNqTrgL._AC_UF1000,1000_QL80_.jpg",
+      "price": 18281,
+      "stock": 48,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Television"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "SamsungNeos8h2u",
+      "name": "Samsung Neo QLED",
+      "image": "https://www.mobex.in/cdn/shop/files/71WlMqMl5wL._SL1500.jpg?v=1740565871&width=1214",
+      "price": 109486,
+      "stock": 81,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Television"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "SamsungRef32hb6",
+      "name": "Samsung Refridgerator ",
+      "image": "/noImage.png",
+      "price": 101674,
+      "stock": 92,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Fridges"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "LG3981edvch8o5i",
+      "name": "LG 398",
+      "image": "https://www.lg.com/content/dam/channel/wcms/in/images/refrigerators/gl-t422vpzx_epzzebn_eail_in_c/gallery/GL-T422VPZX-Refrigerators-Back-View-D01.jpg",
+      "price": 46999,
+      "stock": 33,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Fridges"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "LGuhdtv1h74m0gg",
+      "name": "LG uhd tv",
+      "image": "https://kapilsinghenterprises.com/wp-content/uploads/2023/10/43UR8040PSB-D-01.jpeg",
+      "price": 54381,
+      "stock": 37,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Television"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "LGwasherDr1humg",
+      "name": "LG washer Dryer",
+      "image": "https://lgonlinestores.com/wp-content/uploads/2023/11/FHD1107STB-washing-machines-left.webp",
+      "price": 58283,
+      "stock": 38,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Laundry"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "Haierwashi2q97s",
+      "name": "Haier washing machine",
+      "image": "https://electronicparadise.in/cdn/shop/files/Haier_HTW100_178BKN_2.jpg?v=1728464206&width=1406",
+      "price": "14599",
+      "stock": 43,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Laundry"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "Haierrefri117uj",
+      "name": "Haier refridgerator",
+      "image": "https://www.amazon.in/Haier-Direct-Cool-Refrigerator-HRD-1954CRB-Blossom/dp/B085ZP2M9Q",
+      "price": "30999",
+      "stock": 88,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "Fridges"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "LGac2jn5dtbifcb",
+      "name": "LG ac",
+      "image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/company/1/applications/645a057875d8c4882b096f7e/theme/pictures/free/original/theme-image-1770623653880.jpeg",
+      "price": "41999",
+      "stock": 47,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "ACs"
+      },
+      "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
+      "specInfo": [
+        {
+          "spec": ""
+        }
+      ],
+      "specDesc": [
+        {
+          "val": ""
+        }
+      ]
+    },
+    {
+      "id": "LLOYDac1vlrda0o",
+      "name": "LLOYD ac",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/4/297215938/GU/JA/GJ/14227353/split-ac-inverter-1-5-3-star-color-gls18i3frcev.png",
+      "price": "59000",
+      "stock": 70,
+      "offer": 0,
+      "category": {
+        "T1": "Applainces",
+        "T2": "ACs"
       },
       "desc": "This product is designed to offer reliable performance and everyday convenience for a wide range of needs.\nBuilt with quality materials, it combines functionality and value in a simple, practical design",
       "specInfo": [

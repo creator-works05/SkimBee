@@ -1,0 +1,11 @@
+{
+          wholeC.find((el,i)=>{
+            console.log(el[formData?.MCategory])
+            return el?.[formData?.MCategory]
+          })?.map((el,i)=>{
+            return <option value={el.subType} key={i}  >{el.subType}</option>
+            
+          })
+          
+          
+        }

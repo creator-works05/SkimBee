@@ -4,6 +4,7 @@ import { getMethod, postMethod, putMethod } from '../ApiServices/autoMethod'
 import { urlmainType } from '../ApiServices/setUrl'
 import ProductAdd from './ProductAdd'
 import CarousalChoice from './CarousalChoice'
+import HomeProducts from './HomeProducts'
 
 function AdminChoice() {
   const { choice } = useContext(AdminContext)
@@ -98,6 +99,7 @@ function AdminChoice() {
 
     </>
     case "carousal" : return <CarousalChoice/>
+    case "homeProduct" : return <HomeProducts/>
   }
 
   return (
