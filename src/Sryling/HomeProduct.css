@@ -1,0 +1,23 @@
+.table-hmprdct{
+    border-collapse: collapse;
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 60%;
+    
+    background-color: rgb(16, 26, 1);
+    color: rgb(218, 167, 255);
+}
+.table-hmprdct th{
+    text-align: center;
+    color: white;
+    color: white;
+
+    border: 2px solid black;
+}
+.table-hmprdct td{
+    border: 1px solid black;
+}
+.table-hmprdct tr:nth-child(even){
+    background-color: rgb(33, 41, 20);
+}
