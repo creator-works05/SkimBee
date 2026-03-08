@@ -1150,5 +1150,32 @@
         }
       ]
     }
+  ],
+  "homeProduct": [
+    {
+      "products": [
+        "S26ultra1yadgaz",
+        "vivox300prlr07l",
+        "VivoV50x02h1yl9",
+        "Galaxys25f3jaoy",
+        "GalaxyA5657woo8",
+        "Pumamengal2vobd",
+        "HPvictus1539oan",
+        "HPvictus1539oan",
+        "HPvictus1539oan",
+        "DEELMOcasu1f0q2",
+        "Levisfitts1xaen",
+        "Roadsterme18m2j",
+        "Roadsterme18m2j",
+        "RoadsterGr3gc5q",
+        "Roadsterme18m2j",
+        "Levisfitts1xaen",
+        "Roadsterme18m2j",
+        "RoadsterGr3gc5q",
+        "Roadsterme18m2j",
+        "LenovoIdea54tp8"
+      ],
+      "id": "home"
+    }
   ]
 }

@@ -16,7 +16,8 @@
     border: 2px solid black;
 }
 .table-hmprdct td{
-    border: 1px solid black;
+    border: 1px solid rgb(140, 29, 85);
+    padding-left: 5px;
 }
 .table-hmprdct tr:nth-child(even){
     background-color: rgb(33, 41, 20);

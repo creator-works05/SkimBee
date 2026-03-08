@@ -9,6 +9,9 @@ const urlmainType=`http://localhost:3000/mainType`
 const urladmin=`http://localhost:3000/admin`
 const urlproduct=`http://localhost:3000/product`
 const urlcarousal=`http://localhost:3000/carousal`
+const urlhomeProduct=`http://localhost:3000/homeProduct`
 
 
-export {urlusers,urluserLogs,urlmainType,urladmin,urlproduct,urlcarousal}
+
+
+export {urlusers,urluserLogs,urlmainType,urladmin,urlproduct,urlcarousal,urlhomeProduct}

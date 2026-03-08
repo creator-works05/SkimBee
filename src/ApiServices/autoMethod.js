@@ -9,4 +9,7 @@ const postMethod=(url,data)=>{
 const putMethod=(url,data)=>{
    return axios.put (url,data)
 }
-export {getMethod,postMethod,putMethod}
+const deleteMethod=(url)=>{
+   return axios.delete (url)
+}
+export {getMethod,postMethod,putMethod,deleteMethod}
