@@ -22,3 +22,60 @@
 .table-hmprdct tr:nth-child(even){
     background-color: rgb(33, 41, 20);
 }
+.table-hmprdct tr td>button{
+    background-color: rgb(54, 52, 81);
+    color: rgb(255, 194, 147);
+    border-radius: 6px;
+}
+.table-hmprdct tr >td:nth-child(6){
+    text-align: center;
+}
+.table-hmprdct tr td>button:active{
+    background: rgb(241, 176, 56);
+}
+/* ----------------------------------------- */
+.table-prev-hmprdct{
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 100%;
+    
+    background-color: rgb(66, 20, 52);
+    background-color: rgb(34, 10, 27);
+
+    color: rgb(254, 214, 255);
+    margin-bottom: 40px;
+}
+
+.table-prev-hmprdct th{
+    text-align: center;
+    color: white;
+    color: rgb(74, 255, 243);
+
+    border: 2px solid rgb(8, 40, 52);
+}
+
+.table-prev-hmprdct td{
+    border: 1px solid rgb(60, 28, 44);
+    padding-left: 5px;
+}
+
+.table-prev-hmprdct tr:nth-child(even){
+    background-color: rgb(80, 55, 75);
+    background-color: rgb(49, 0, 34);
+    
+
+}
+
+.table-prev-hmprdct tr td>button{
+    background-color: rgb(54, 52, 81);
+    color: rgb(255, 194, 147);
+    border-radius: 6px;
+}
+.table-prev-hmprdct tr >td:nth-child(6){
+    text-align: center;
+}
+.table-prev-hmprdct tr td>button:active{
+    background: rgb(241, 176, 56);
+}

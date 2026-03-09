@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useMemo } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { getMethod, putMethod } from '../ApiServices/autoMethod'
 import { urlhomeProduct, urlmainType, urlproduct } from '../ApiServices/setUrl'
 import '../Sryling/HomeProduct.css'
@@ -11,31 +11,38 @@ function HomeProducts() {
     const [homeP, setHomeP] = useState([])
     const [popAlert, setPopAlert] = useState(false)
     const [alertMsg, setAlertMsg] = useState("something gone wrong")
-    const [formData, setFormData] = useState({ MCategory: "", SubCategory: "" })
+    const [formData, setFormData] = useState({ MCategory: "", SubCategory: "", showHome: false })
 
-     const theseProducts= useMemo(()=>{
-                              return  product.filter((el, i) => {
-                                return el.category.T1 === formData.MCategory && el.category.T2 === formData.SubCategory
-                            })
-                            },[product,formData])
-     const thoseProducts= useMemo(()=>{
-                              return  product.filter((el, i) => {
-                                return el.category.T1 === formData.MCategory 
-                            })
-                            },[product,formData])
+    const theseProducts = useMemo(() => {
+        return product.filter((el, i) => {
+            return el.category.T1 === formData.MCategory && el.category.T2 === formData.SubCategory
+        })
+    }, [product, formData])
+    
+    const thoseProducts = useMemo(() => {
+        return product.filter((el, i) => {
+            return el.category.T1 === formData.MCategory
+        })
+    }, [product, formData])
+    const showCollections=useMemo((el,i)=>{
+        return product.filter((el,i)=>{
+            return homeP.includes(el.id)
+        })
+    },[product,homeP])
 
     useEffect(() => {
         getMethod(urlproduct)
             .then(res => { setProduct(res.data) })
+            .then(() => { console.log("run now") })
             .catch(err => { console.log(err.message) })
-    }, [])
+    }, [homeP.length])
     useEffect(() => {
         getMethod(urlhomeProduct)
             .then(res => { setHomeP(res.data[0].products) })
             .catch(err => { console.log(err.message) })
 
-    }, [])
-   
+    }, [homeP,product,formData])
+
     useEffect(() => {
         getMethod(urlmainType)
             .then(res => {
@@ -73,8 +80,7 @@ function HomeProducts() {
     function handleChange(e) {
         let { name, value } = e.target;
         setFormData({ ...formData, [name]: value })
-        console.log(formData.MCategory)
-        console.log(formData.SubCategory)
+        console.log(formData.showHome, "-----")
 
     }
 
@@ -82,10 +88,17 @@ function HomeProducts() {
 
     function homeAdd(e, obj) {
         console.log(obj)
-        
+        const flag = homeP.some((el, i) => {
+            return el === obj.id
+        })
+        if (flag) {
+            setPopAlert(true)
+            setAlertMsg(`${obj.id} already exists in home page, try another field.`)
+            return
+        }
 
         if (homeP.length >= 20) {
-            homeP.pop()
+            homeP.shift()
             homeP.push(obj.id)
         }
         else {
@@ -150,6 +163,10 @@ function HomeProducts() {
 
                 </select>
 
+                <label style={{marginLeft:"2%"}}> Show home page collections <input type='checkbox' checked={formData.showHome} onChange={(e) => {
+                    setFormData({ ...formData, showHome: e.target.checked })
+                    console.log(formData.showHome)
+                }} /></label>
 
 
 
@@ -167,9 +184,22 @@ function HomeProducts() {
                     </thead>
                     <tbody>
                         {
-                            formData.MCategory && !formData.SubCategory && 
+                            formData.MCategory && !formData.SubCategory &&
                             thoseProducts?.map((el, i) => {
-                                console.log(el.image)
+                                let flag = homeP.some((elm, j) => {
+                                    return elm === el.id
+                                })
+                                if (flag) {
+                                    return <tr key={i}>
+                                        <td>{i + 1}</td>
+                                        <td>{el.id}</td>
+                                        <td>{el.name}</td>
+                                        <td>{el.price}</td>
+                                        <td style={{ textAlign: "center" }}><img src={el.image} style={{ width: "100px", aspectRatio: "16/9", objectFit: "contain", objectPosition: "center" }} /></td>
+                                        <td><button type='button' style={{ background: 'rgba(155, 155, 132, 0.6)', color: "rgb(3, 60, 61)" }} onMouseOut={buttonLeave} onClick={(e) => { homeAdd(e, el) }} disabled={true} >Add</button></td>
+
+                                    </tr>
+                                }
                                 return <tr key={i}>
                                     <td>{i + 1}</td>
                                     <td>{el.id}</td>
@@ -184,8 +214,23 @@ function HomeProducts() {
                         {
 
                             formData.MCategory && formData.SubCategory &&
-                           theseProducts ?.map((el, i) => {
-                                console.log(el.image)
+                            theseProducts?.map((el, i) => {
+                                let flag = homeP.some((elm, j) => {
+                                    return elm === el.id
+                                })
+                                if (flag) {
+                                    return <tr key={i}>
+                                        <td>{i + 1}</td>
+                                        <td>{el.id}</td>
+                                        <td>{el.name}</td>
+                                        <td>{el.price}</td>
+                                        <td style={{ textAlign: "center" }}><img src={el.image} style={{ width: "100px", aspectRatio: "16/9", objectFit: "contain", objectPosition: "center" }} /></td>
+                                        <td><button type='button' style={{ background: 'rgba(155, 155, 132, 0.6)', color: "rgb(3, 60, 61)" }} onMouseOut={buttonLeave} onClick={(e) => { homeAdd(e, el) }} disabled={true} >Add</button></td>
+
+                                    </tr>
+                                }
+
+
                                 return <tr key={i}>
                                     <td>{i + 1}</td>
                                     <td>{el.id}</td>
@@ -196,14 +241,48 @@ function HomeProducts() {
 
                                 </tr>
                             })
-                        } 
+                        }
 
                     </tbody>
 
                 </table>
 
-
             </form>
+            {/* SHOW HOME COLLECTION */}
+            {
+                formData.showHome &&
+                 <table className='table-prev-hmprdct' >
+                    <thead>
+                        <tr>
+                            <th>sl.no</th>
+                            <th>Id</th>
+                            <th>product</th>
+                            <th>price</th>
+                            <th>Image </th>
+                            <th>Remove </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            showCollections.map((el,i)=>{
+                                 return <tr key={i}>
+                                    <td>{i + 1}</td>
+                                    <td>{el.id}</td>
+                                    <td>{el.name}</td>
+                                    <td>{el.price}</td>
+                                    <td style={{ textAlign: "center" }}><img src={el.image} style={{ width: "200px", aspectRatio: "16/9", objectFit: "contain", objectPosition: "center" }} /></td>
+                                    <td><button type='button'  disabled={popAlert}>Add</button></td>
+
+                                </tr>
+
+                            })
+                        }
+
+                    </tbody>
+                    </table>
+
+            }
 
             {popAlert && <div style={{ position: "fixed", top: "0", paddingLeft: "10%", paddingRight: "10%", left: "50%", transform: "translateX(-50%)", marginTop: "5px" }} className="alert alert-info " role="alert">
                 {alertMsg} <button onClick={doClose} style={{ position: "absolute", top: "0", right: "0", border: "0", borderRadius: "4px", background: "rgb(187,200,140)" }}>close</button>
