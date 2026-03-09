@@ -17,14 +17,14 @@ function HomeProducts() {
         return product.filter((el, i) => {
             return el.category.T1 === formData.MCategory && el.category.T2 === formData.SubCategory
         })
-    }, [product, formData])
+    }, [product, formData.MCategory,formData.SubCategory])
     
     const thoseProducts = useMemo(() => {
         return product.filter((el, i) => {
             return el.category.T1 === formData.MCategory
         })
-    }, [product, formData])
-    const showCollections=useMemo((el,i)=>{
+    }, [product, formData.MCategory])
+    const showCollections=useMemo(()=>{
         return product.filter((el,i)=>{
             return homeP.includes(el.id)
         })
@@ -35,13 +35,13 @@ function HomeProducts() {
             .then(res => { setProduct(res.data) })
             .then(() => { console.log("run now") })
             .catch(err => { console.log(err.message) })
-    }, [homeP.length])
+    }, [])
     useEffect(() => {
         getMethod(urlhomeProduct)
             .then(res => { setHomeP(res.data[0].products) })
             .catch(err => { console.log(err.message) })
 
-    }, [homeP,product,formData])
+    }, [])
 
     useEffect(() => {
         getMethod(urlmainType)
@@ -62,18 +62,10 @@ function HomeProducts() {
 
     useEffect(() => {
 
-        // console.log(product[1]);
-        // console.log(mainCtgry);
-        console.log(wholeC)
-        let temp = wholeC.find((el, i) => {
-
-            return el?.[formData?.MCategory]
-        })?.[formData?.MCategory].map((el, i) => {
-            return el.subType
-        })
+     
 
         console.log(homeP, "homeP")
-    }, [product, mainCtgry, wholeC, formData?.MCategory, formData, homeP])
+    }, [homeP])
 
 
 
@@ -88,29 +80,35 @@ function HomeProducts() {
 
     function homeAdd(e, obj) {
         console.log(obj)
-        const flag = homeP.some((el, i) => {
-            return el === obj.id
-        })
-        if (flag) {
+       
+        if (homeP.includes(obj.id)) {
             setPopAlert(true)
             setAlertMsg(`${obj.id} already exists in home page, try another field.`)
             return
         }
-
+      let newArray=[...homeP]
         if (homeP.length >= 20) {
-            homeP.shift()
-            homeP.push(obj.id)
+            newArray.shift() //difference betweeen slice and 
+            
         }
-        else {
-            homeP.push(obj.id)
-        }
-        putMethod(`${urlhomeProduct}/home`, { products: homeP })
+        
+            newArray.push(obj.id)
+        
+        putMethod(`${urlhomeProduct}/home`, { id:"home",
+            products: newArray })
             .then(res => console.log(res.data))
-            .then(() => setHomeP(homeP))
             .then(() => {
                 setAlertMsg(`Added ${obj.name}'s ${obj.id} f0r HomeProduct Page successfully. products count: ${homeP.length}`)
                 setPopAlert(true)
+                return getMethod(urlhomeProduct)
+            })
+            .then(res=>{
+                setHomeP(res.data[0].products)
+                return getMethod(urlproduct)
+            })
+            .then((res)=>{
 
+                setProduct(res.data)
             })
             .catch(err => {
                 setAlertMsg(err.message)
