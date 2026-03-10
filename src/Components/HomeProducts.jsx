@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState, useMemo, useRef } from 'react'
 import { getMethod, putMethod } from '../ApiServices/autoMethod'
 import { urlhomeProduct, urlmainType, urlproduct } from '../ApiServices/setUrl'
 import '../Sryling/HomeProduct.css'
@@ -12,23 +12,27 @@ function HomeProducts() {
     const [popAlert, setPopAlert] = useState(false)
     const [alertMsg, setAlertMsg] = useState("something gone wrong")
     const [formData, setFormData] = useState({ MCategory: "", SubCategory: "", showHome: false })
-
+    const [desableFlag,setDisableFlag] = useState(false)
+    const homePset = useMemo(() => {
+        return new Set(homeP)
+    }, [homeP])
     const theseProducts = useMemo(() => {
         return product.filter((el, i) => {
             return el.category.T1 === formData.MCategory && el.category.T2 === formData.SubCategory
         })
-    }, [product, formData.MCategory,formData.SubCategory])
-    
+    }, [product, formData.MCategory, formData.SubCategory])
+
     const thoseProducts = useMemo(() => {
         return product.filter((el, i) => {
             return el.category.T1 === formData.MCategory
         })
     }, [product, formData.MCategory])
-    const showCollections=useMemo(()=>{
-        return product.filter((el,i)=>{
-            return homeP.includes(el.id)
+    const showCollections = useMemo(() => {
+        return product.filter((el, i) => {
+            return homePset.has(el.id)
         })
-    },[product,homeP])
+    }, [product, homePset])
+
 
     useEffect(() => {
         getMethod(urlproduct)
@@ -62,7 +66,7 @@ function HomeProducts() {
 
     useEffect(() => {
 
-     
+
 
         console.log(homeP, "homeP")
     }, [homeP])
@@ -71,7 +75,7 @@ function HomeProducts() {
 
     function handleChange(e) {
         let { name, value } = e.target;
-        setFormData({ ...formData, [name]: value })
+        setFormData(prev => ({ ...prev, [name]: value }))
         console.log(formData.showHome, "-----")
 
     }
@@ -81,32 +85,35 @@ function HomeProducts() {
     function homeAdd(e, obj) {
         console.log(obj)
        
-        if (homeP.includes(obj.id)) {
+
+        if (homePset.has(obj.id)) {
             setPopAlert(true)
             setAlertMsg(`${obj.id} already exists in home page, try another field.`)
             return
         }
-      let newArray=[...homeP]
+        let newArray = [...homeP]
         if (homeP.length >= 20) {
             newArray.shift() //difference betweeen slice and 
-            
+
         }
-        
-            newArray.push(obj.id)
-        
-        putMethod(`${urlhomeProduct}/home`, { id:"home",
-            products: newArray })
+
+        newArray.push(obj.id)
+
+        putMethod(`${urlhomeProduct}/home`, {
+            id: "home",
+            products: newArray
+        })
             .then(res => console.log(res.data))
             .then(() => {
-                setAlertMsg(`Added ${obj.name}'s ${obj.id} f0r HomeProduct Page successfully. products count: ${homeP.length}`)
+                setAlertMsg(`Added ${obj.name}'s ${obj.id} f0r HomeProduct Page successfully. products count: ${newArray.length}`)
                 setPopAlert(true)
                 return getMethod(urlhomeProduct)
             })
-            .then(res=>{
+            .then(res => {
                 setHomeP(res.data[0].products)
                 return getMethod(urlproduct)
             })
-            .then((res)=>{
+            .then((res) => {
 
                 setProduct(res.data)
             })
@@ -125,16 +132,45 @@ function HomeProducts() {
         setPopAlert(false)
     }
 
+    function homeRemove(el) {
+        let newArray = homeP.filter((elm) => elm !== el.id)
+        setDisableFlag(true)
+        setTimeout(() => {
+            setDisableFlag(false)
+        }, 1000)
+
+        putMethod(`${urlhomeProduct}/home`, {
+            id: "home",
+            products: newArray
+        })
+            .then(res => console.log(res.data))
+            .then(() => {
+                setAlertMsg(`  ${el.id}, Product name: ${el.name} has been removed from the home page collection `)
+                setPopAlert(true)
+                return getMethod(urlhomeProduct)
+            })
+            .then(res => {
+                setHomeP(res.data[0].products)
+                return getMethod(urlproduct)
+            })
+            .then(res => setProduct(res.data))
+            .catch(err => {
+                setAlertMsg(err.message)
+                setPopAlert(true)
+            })
+
+    }
+
     return (
         <>
             <form >
-                <select name="MCategory" required onChange={(e) => {
+                <select name="MCategory" value={formData.MCategory} required onChange={(e) => {
                     handleChange(e);
 
                     setFormData(prev => ({ ...prev, SubCategory: "" }))
 
                 }}>
-                    <option value="" selected >Choose main category</option>
+                    <option value=""  >Choose main category</option>
                     {
                         mainCtgry.map((el, i) => {
                             return <option value={el} key={i}  >{el}</option>
@@ -161,7 +197,7 @@ function HomeProducts() {
 
                 </select>
 
-                <label style={{marginLeft:"2%"}}> Show home page collections <input type='checkbox' checked={formData.showHome} onChange={(e) => {
+                <label style={{ marginLeft: "2%" }}> Show home page collections <input type='checkbox' checked={formData.showHome} onChange={(e) => {
                     setFormData({ ...formData, showHome: e.target.checked })
                     console.log(formData.showHome)
                 }} /></label>
@@ -184,10 +220,8 @@ function HomeProducts() {
                         {
                             formData.MCategory && !formData.SubCategory &&
                             thoseProducts?.map((el, i) => {
-                                let flag = homeP.some((elm, j) => {
-                                    return elm === el.id
-                                })
-                                if (flag) {
+
+                                if (homePset.has(el.id)) {
                                     return <tr key={i}>
                                         <td>{i + 1}</td>
                                         <td>{el.id}</td>
@@ -213,10 +247,8 @@ function HomeProducts() {
 
                             formData.MCategory && formData.SubCategory &&
                             theseProducts?.map((el, i) => {
-                                let flag = homeP.some((elm, j) => {
-                                    return elm === el.id
-                                })
-                                if (flag) {
+
+                                if (homePset.has(el.id)) {
                                     return <tr key={i}>
                                         <td>{i + 1}</td>
                                         <td>{el.id}</td>
@@ -235,7 +267,7 @@ function HomeProducts() {
                                     <td>{el.name}</td>
                                     <td>{el.price}</td>
                                     <td style={{ textAlign: "center" }}><img src={el.image} style={{ width: "100px", aspectRatio: "16/9", objectFit: "contain", objectPosition: "center" }} /></td>
-                                    <td><button type='button' onClick={(e) => { homeAdd(e, el) }} onMouseOut={buttonLeave} disabled={popAlert}>Add</button></td>
+                                    <td><button type='button' onClick={(e) => { homeAdd(e, el) }} disabled={popAlert}>Add</button></td>
 
                                 </tr>
                             })
@@ -249,7 +281,7 @@ function HomeProducts() {
             {/* SHOW HOME COLLECTION */}
             {
                 formData.showHome &&
-                 <table className='table-prev-hmprdct' >
+                <table className='table-prev-hmprdct' >
                     <thead>
                         <tr>
                             <th>sl.no</th>
@@ -263,14 +295,14 @@ function HomeProducts() {
                     </thead>
                     <tbody>
                         {
-                            showCollections.map((el,i)=>{
-                                 return <tr key={i}>
+                            showCollections.map((el, i) => {
+                                return <tr key={i}>
                                     <td>{i + 1}</td>
                                     <td>{el.id}</td>
                                     <td>{el.name}</td>
                                     <td>{el.price}</td>
                                     <td style={{ textAlign: "center" }}><img src={el.image} style={{ width: "200px", aspectRatio: "16/9", objectFit: "contain", objectPosition: "center" }} /></td>
-                                    <td><button type='button'  disabled={popAlert}>Add</button></td>
+                                    <td><button type='button'  onClick={() => { homeRemove(el) }} disabled={desableFlag}>Remove</button></td>
 
                                 </tr>
 
@@ -278,7 +310,7 @@ function HomeProducts() {
                         }
 
                     </tbody>
-                    </table>
+                </table>
 
             }
 
