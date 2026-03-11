@@ -1,0 +1,30 @@
+.collection-hmclctn{
+    display: grid;
+    width: 95%;
+   
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(20,minmax(20px,1fr));
+    grid-auto-rows: 45px;
+    grid-auto-flow: row;
+    gap: 15px;
+    background: red;
+
+}
+.big-hmclctn{
+    grid-column: span 5;
+   
+    background: rgb(55, 78, 98);
+}
+.small-hmclctn{
+    grid-column: span 3;
+    background: rgb(121, 1, 101);
+}
+.mid-hmclctn{
+    grid-column: span 4;
+    background: rgb(106, 118, 0);
+}
+.flex-hmclctn{
+   
+    background: rgb(239, 150, 82);
+}
