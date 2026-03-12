@@ -1,30 +1,77 @@
-.collection-hmclctn{
+.collection-hmclctn {
     display: grid;
-    width: 95%;
-   
+    width: 98.5%;
+
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: repeat(20,minmax(20px,1fr));
+    grid-template-columns: repeat(20, minmax(5px, 1fr));
     grid-auto-rows: 45px;
     grid-auto-flow: row;
-    gap: 15px;
-    background: red;
+    gap: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /* background: red; */
 
 }
-.big-hmclctn{
-    grid-column: span 5;
-   
-    background: rgb(55, 78, 98);
+
+.big-hmclctn {
+    grid-column: span 6;
+    grid-row: span 5;
+    /* background: rgb(55, 78, 98); */
 }
-.small-hmclctn{
-    grid-column: span 3;
-    background: rgb(121, 1, 101);
-}
-.mid-hmclctn{
+
+.small-hmclctn {
     grid-column: span 4;
-    background: rgb(106, 118, 0);
+    grid-row: span 5;
+
+    /* background: rgb(121, 1, 101); */
 }
-.flex-hmclctn{
-   
-    background: rgb(239, 150, 82);
+
+.mid-hmclctn {
+    grid-column: span 5;
+    grid-row: span 5;
+
+    /* background: rgb(106, 118, 0); */
+}
+
+.flex-hmclctn {
+    grid-row: span 5;
+
+    /* background: rgb(239, 150, 82); */
+}
+
+.collection-hmclctn>div {
+    border-radius: 6px;
+    outline: 1px solid black;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: grid;
+    grid-auto-rows: auto;
+    justify-items: center;
+
+}
+
+.collection-hmclctn>div>img {
+    width: 95%;
+    aspect-ratio: 2.5/1;
+    object-fit: contain;
+    object-position: center;
+    background: rgba(99, 100, 103, 0.4);
+    border-radius: 6px;
+    margin-top: 5px;
+
+}
+
+.collection-hmclctn>div>p {
+
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0;
+    line-height: 0.9;
+    
+
 }
